@@ -27,7 +27,7 @@ import java.util.Arrays;
 public class Audio_Recorder extends AppCompatActivity {
     private static final String TAG = "VoiceRecord";
 
-    private static final int RECORDER_SAMPLERATE = 41000;
+    private static final int RECORDER_SAMPLERATE = 44100;
     private static final int RECORDER_CHANNELS_IN = AudioFormat.CHANNEL_IN_MONO;
     private static final int RECORDER_CHANNELS_OUT = AudioFormat.CHANNEL_OUT_MONO;
     private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
@@ -41,7 +41,7 @@ public class Audio_Recorder extends AppCompatActivity {
     private Thread recordingThread = null;
     private boolean isRecording = false;
     //AudioManager am;
-    AudioTrack atrack;
+
     int fileCount;
     ListView mainListView;
     @Override
@@ -80,7 +80,7 @@ public class Audio_Recorder extends AppCompatActivity {
         enableButton(R.id.btnPlay, !isRecording);
     }
 
-    int BufferElements2Rec = 2048; // want to play 2048 (2K) since 2 bytes we use only 1024
+    int BufferElements2Rec = 1024; // want to play 2048 (2K) since 2 bytes we use only 1024
     int BytesPerElement = 2; // 2 bytes in 16bit format
 
     private void startRecording() {
